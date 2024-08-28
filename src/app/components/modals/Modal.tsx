@@ -14,7 +14,7 @@ interface ModalProps {
     actionLabel?: string
     disabled?: boolean
     secundaryAction?: () => void
-    secundaryLabel?: string
+    secundaryActionLabel?: string
 }
 const Modal: React.FC<ModalProps> = ({
     isOpen,
@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({
     actionLabel = 'Save',
     disabled = false,
     secundaryAction,
-    secundaryLabel = 'Cancel'
+    secundaryActionLabel = 'Cancel'
 }) => {
     const [showModal, setShowModal] = useState(isOpen)
     const handleClose = useCallback(() => {
@@ -82,13 +82,22 @@ const Modal: React.FC<ModalProps> = ({
                         <div className="flex flex-auto p-6">
                             {body && <div className="p-6">{body}</div>}
                         </div>
-                        <footer className="flex items-center justify-center p-6 border-t border-[#dddddd] ">
+                        <footer className="flex items-center justify-center p-6 border-t border-[#dddddd] gap-4">
                             {!footer && (
                                 <>
                                     <Button
+                                        disabled={disabled}
                                         label={actionLabel}
-                                        onClick={handleSecundaryAction}
+                                        onClick={handleSubmit}
                                     />
+                                    {secundaryAction && (
+                                        <Button
+                                            disabled={disabled}
+                                            label={secundaryActionLabel}
+                                            onClick={handleSecundaryAction}
+                                            outline
+                                        />
+                                    )}
                                 </>
                             )}
                         </footer>

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/app/components/navbar/Navbar'
 import localFont from 'next/font/local'
@@ -30,7 +29,7 @@ const font = localFont({
     ]
 })
 export const metadata: Metadata = {
-    title: 'Airbnb',
+    title: 'Airbnb | Clone',
     description:
         'Airbnb: Vacation Rentals, Cabins, Beach Houses, Unique Homes & Experiences'
 }
@@ -44,11 +43,11 @@ export default function RootLayout({
         <html lang="en">
             <body className={font.className}>
                 <Navbar />
-                <Modal
+                {/* <Modal
                     isOpen
                     title="Iniciar sesión o registrarse"
                     actionLabel="Continúa"
-                />
+                /> */}
                 {children}
             </body>
         </html>
