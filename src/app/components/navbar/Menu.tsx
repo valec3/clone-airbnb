@@ -1,9 +1,10 @@
+import useRegisterModal from '@/app/hooks/useRegisterModal'
 import MenuItem from './MenuItem'
 import { useRouter } from 'next/navigation'
 const Menu = () => {
-    const router = useRouter()
+    const { openModal } = useRegisterModal()
     const handleRegister = () => {
-        router.push('/register')
+        openModal()
     }
     return (
         <div className="flex flex-col gap-2 absolute top-14 right-0 w-64 bg-white border-[1px] border-neutral-300 shadow-lg rounded-lg py-2">

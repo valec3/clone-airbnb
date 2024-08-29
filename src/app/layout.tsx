@@ -3,6 +3,7 @@ import './globals.css'
 import { Navbar } from '@/app/components/navbar/Navbar'
 import localFont from 'next/font/local'
 import Modal from './components/modals/Modal'
+import RegisterModal from './components/modals/RegisterModal'
 // const font = Nunito({ subsets: ['latin'] })
 const font = localFont({
     src: [
@@ -43,11 +44,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={font.className}>
                 <Navbar />
-                {/* <Modal
-                    isOpen
-                    title="Iniciar sesión o registrarse"
-                    actionLabel="Continúa"
-                /> */}
+                <RegisterModal />
                 {children}
             </body>
         </html>
