@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 export const Logo = () => {
     const router = useRouter()
     return (
-        <div className="flex-grow-[1] basis-[140px]">
+        <div className="md:flex-grow-[1] basis-[140px] hidden md:block">
             <Image
                 src="/images/Airbnb_Logo.png"
                 className="hidden md:block cursor-pointer"

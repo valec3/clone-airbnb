@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({
     useEffect(() => {
         setShowModal(isOpen)
     }, [isOpen])
-
+    console.log('isOpen in GENERIC MODAL: ', isOpen)
     if (!isOpen) return null
     if (isOpen) {
         document.body.style.overflow = 'hidden'
@@ -70,9 +70,9 @@ const Modal: React.FC<ModalProps> = ({
                 } ${showModal ? 'opacity-100' : 'opacity-0'}`}
             >
                 <div className="border-0 shadow-lg relative flex flex-col  outline-none text-black">
-                    <header className="flex items-center p-6 justify-center border-[1px] border-[#dddddd]">
+                    <header className="flex items-center px-6 py-5 justify-center border-[1px] border-[#dddddd]">
                         <button
-                            className="p-1 border-0 hover:opacity-70 transition absolute left-9"
+                            className="p-1 border-0 hover:opacity-70 transition absolute left-5"
                             onClick={handleClose}
                         >
                             <IoMdClose size={20} />
@@ -81,28 +81,27 @@ const Modal: React.FC<ModalProps> = ({
                             <span>{title}</span>
                         </h3>
                     </header>
-                    <div className="flex flex-auto p-6 max-h-[70vh] overflow-y-auto">
-                        {body && <>{body}</>}
-                    </div>
-                    <footer className="flex items-center justify-center p-6 border-t border-[#dddddd] gap-4">
-                        {!footer && (
-                            <>
+                    <div className="max-h-[81vh] overflow-y-auto p-6">
+                        <div className="flex flex-auto ">
+                            {body && <>{body}</>}
+                        </div>
+                        <div className="flex items-center justify-center py-6 border-b border-[#dddddd] gap-4">
+                            <Button
+                                disabled={disabled}
+                                label={actionLabel}
+                                onClick={handleSubmit}
+                            />
+                            {secundaryAction && (
                                 <Button
                                     disabled={disabled}
-                                    label={actionLabel}
-                                    onClick={handleSubmit}
+                                    label={secundaryActionLabel}
+                                    onClick={handleSecundaryAction}
+                                    outline
                                 />
-                                {secundaryAction && (
-                                    <Button
-                                        disabled={disabled}
-                                        label={secundaryActionLabel}
-                                        onClick={handleSecundaryAction}
-                                        outline
-                                    />
-                                )}
-                            </>
-                        )}
-                    </footer>
+                            )}
+                        </div>
+                        <footer>{footer}</footer>
+                    </div>
                 </div>
             </div>
         </div>

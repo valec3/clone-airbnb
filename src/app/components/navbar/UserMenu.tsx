@@ -12,7 +12,7 @@ const UserMenu = () => {
         setIsOpen(!isOpen)
     }
     return (
-        <div className="relative flex-grow-[1] basis-[140px]">
+        <div className="relative md:flex-grow-[1] basis-[140px]">
             <div className="flex flex-row justify-end items-center gap-3">
                 <div className="hidden md:block text-sm font-medium py-3 px-4 hover:bg-neutral-150 transition cursor-pointer">
                     Pon tu espacio en Airbnb

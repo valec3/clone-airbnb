@@ -2,7 +2,7 @@ import URL_API from './api.config'
 class AuthController {
     register = async (user) => {
         try {
-            const response = await fetch(`${URL_API}/auth/register`, {
+            const response = await fetch(`${URL_API}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -12,6 +12,7 @@ class AuthController {
             return await response.json()
         } catch (error) {
             console.error('Error registering user:', error)
+            return null
         }
     }
 }

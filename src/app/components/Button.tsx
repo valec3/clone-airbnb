@@ -27,11 +27,16 @@ const Button: React.FC<ButtonProps> = ({
                     : 'text-base py-3 font-medium border-2'
             } ${
                 outline
-                    ? 'text-black bg-white border-black'
+                    ? 'text-black bg-white border-black hover:bg-neutral-100'
                     : 'text-white bg-primary-900 border-primary-900'
             }`}
         >
-            {Icon && <Icon className="absolute left-4 top-3" />}
+            {Icon && (
+                <Icon
+                    className="absolute left-4 top-[50%] transform -translate-y-1/2"
+                    size={24}
+                />
+            )}
             {label}
         </button>
     )
