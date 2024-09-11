@@ -34,7 +34,7 @@ const RegisterModal = () => {
 
         const response = await authController.register(data)
         console.log('response: ', response)
-        if (response.status !== 201) {
+        if (!response) {
             toast.error('Error al registrar usuario')
             setIsLoading(false)
             closeModal()
@@ -150,7 +150,7 @@ const RegisterModal = () => {
         <Modal
             isOpen={isOpen}
             onClose={closeModal}
-            title="Iniciar sesión o registrarse"
+            title="Registrarse"
             disabled={isLoading}
             actionLabel="Aceptar y continuar"
             onSubmit={handleSubmit(onSubmit)}

@@ -4,7 +4,7 @@ import prismaClient from '@/app/libs/prismadb'
 import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
-import { CredentialsProvider } from 'next-auth/providers/credentials'
+import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcrypt'
 
 export const authOptions: AuthOptions = {

@@ -4,6 +4,7 @@ import { Navbar } from '@/app/components/navbar/Navbar'
 import localFont from 'next/font/local'
 import RegisterModal from './components/modals/RegisterModal'
 import ToasterProvider from './providers/ToasterProvider'
+import LoginModal from './components/modals/LoginModal'
 // const font = Nunito({ subsets: ['latin'] })
 const font = localFont({
     src: [
@@ -45,6 +46,7 @@ export default function RootLayout({
             <body className={font.className}>
                 <Navbar />
                 <RegisterModal />
+                <LoginModal />
                 <ToasterProvider />
                 {children}
             </body>
