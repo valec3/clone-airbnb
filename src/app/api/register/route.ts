@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import prismaClient from '@/app/libs/prismadb'
 import { NextResponse } from 'next/server'
+export const runtime = 'edge'
 export async function POST(request: Request) {
     try {
         const { email, password, name, lastName, birthday } =

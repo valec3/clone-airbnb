@@ -6,7 +6,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcrypt'
-
+export const runtime = 'edge'
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prismaClient),
     providers: [
