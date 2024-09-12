@@ -34,16 +34,15 @@ export const authOptions: AuthOptions = {
                 }
                 const user = await prismaClient.user.findFirst({
                     where: {
-                        email: credentials.email,
-                        password: credentials.password
+                        email: credentials.email
                     }
                 })
-                if (!user || !user?.hashedPassword) {
-                    throw new Error('Invalid credentials')
+                if (!user) {
+                    throw new Error('User not exist')
                 }
                 const isMatch = await bcrypt.compare(
                     credentials.password,
-                    user.hashedPassword
+                    user.password
                 )
                 if (!isMatch) {
                     throw new Error('Invalid credentials')

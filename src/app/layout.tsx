@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import RegisterModal from './components/modals/RegisterModal'
 import ToasterProvider from './providers/ToasterProvider'
 import LoginModal from './components/modals/LoginModal'
+import getCurrentUser from './actions/getCurrentUser'
 // const font = Nunito({ subsets: ['latin'] })
 const font = localFont({
     src: [
@@ -36,15 +37,16 @@ export const metadata: Metadata = {
         'Airbnb: Vacation Rentals, Cabins, Beach Houses, Unique Homes & Experiences'
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const currentUser = await getCurrentUser()
     return (
         <html lang="en">
             <body className={font.className}>
-                <Navbar />
+                <Navbar currentUser={currentUser} />
                 <RegisterModal />
                 <LoginModal />
                 <ToasterProvider />

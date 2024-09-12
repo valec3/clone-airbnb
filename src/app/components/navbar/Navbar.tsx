@@ -3,7 +3,14 @@ import Image from 'next/image'
 import { Logo } from '@/app/components/navbar/Logo'
 import Search from '@/app/components/navbar/Search'
 import UserMenu from './UserMenu'
-export const Navbar = () => {
+import { User } from '@prisma/client'
+
+interface NavbarProps {
+    currentUser?: User | null
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+    console.log(currentUser)
     return (
         <header className="fixed w-full h-[80px] bg-white z-50  text-black border-b-[1px] flex items-center">
             <Container>
