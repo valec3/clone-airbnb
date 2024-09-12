@@ -5,8 +5,11 @@ import Avatar from '../Avatar'
 import { BiWorld } from 'react-icons/bi'
 import { useState } from 'react'
 import Menu from './Menu'
-
-const UserMenu = () => {
+import { User } from '@prisma/client'
+interface UserMenuProps {
+    currentUser?: User | null
+}
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     const [isOpen, setIsOpen] = useState(false)
     const toggleOpenMenu = () => {
         setIsOpen(!isOpen)
